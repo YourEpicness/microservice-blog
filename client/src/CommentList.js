@@ -17,7 +17,21 @@ const CommentList = ({ comments }) => {
   // }, []); // empty array as second arg, so its only called once
 
   const renderedComments = comments.map((comment) => {
-    return <li key={comment.id}>{comment.content}</li>; // return a list element with a special key of our comment id
+    let content;
+
+    if (comment.status === "approved") {
+      content = comment.content;
+    }
+
+    if (comment.status === "pending") {
+      content = "This comment is awaiting moderation";
+    }
+
+    if (comment.status === "rejected") {
+      content = "This comment has been rejected.";
+    }
+
+    return <li key={comment.id}>{content}</li>; // return a list element with a special key of our comment id
   });
   return <ul>{renderedComments}</ul>;
 };
