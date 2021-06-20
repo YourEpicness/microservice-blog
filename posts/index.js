@@ -45,5 +45,6 @@ app.post("/events", (req, res) => {
 
 // listening on port
 app.listen(4000, () => {
+  console.log("running with k8s v2");
   console.log("Listening on 4000");
 });
