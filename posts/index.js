@@ -16,7 +16,7 @@ app.get("/posts", (req, res) => {
 });
 
 // post any posts to the /posts endpoint
-app.post("/posts", async (req, res) => {
+app.post("/posts/create", async (req, res) => {
   const id = randomBytes(4).toString("hex"); // produces something like khjr3232
   const { title } = req.body;
 
@@ -45,6 +45,6 @@ app.post("/events", (req, res) => {
 
 // listening on port
 app.listen(4000, () => {
-  console.log("running with k8s v2");
+  console.log("running with k8s v11");
   console.log("Listening on 4000");
 });
